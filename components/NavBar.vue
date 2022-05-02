@@ -7,7 +7,7 @@
       <NuxtLink to='/'>
         List
       </NuxtLink> |
-      <NuxtLink to='/create'>
+      <NuxtLink to='/event/create'>
         Create
       </NuxtLink>
     </nav>
