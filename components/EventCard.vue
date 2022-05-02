@@ -18,7 +18,7 @@ export default {
     event: Object
   },
   computed: {
-    parsedDate() {
+    parsedDate () {
       const eventDate = new Date(this.event.date)
       return eventDate.toDateString()
     }
