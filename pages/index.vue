@@ -11,7 +11,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import EventCardVue from '~/components/EventCard.vue'
+
 export default {
   name: 'IndexPage',
   head () {
@@ -19,12 +21,9 @@ export default {
       title: 'Event Listing'
     }
   },
-  async asyncData ({ $axios, error }) {
+  async fetch ({ store, error }) {
     try {
-      const { data } = await $axios.get('http://localhost:3000/events')
-      return {
-        events: data
-      }
+      await store.dispatch('events/fetchEvents')
     } catch (e) {
       error({
         statusCode: 503,
@@ -32,6 +31,9 @@ export default {
       })
     }
   },
+  computed: mapState({
+    events: state => state.events.events
+  }),
   components: {
     EventCardVue
   }
