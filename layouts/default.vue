@@ -1,8 +1,31 @@
 <template>
-    <div id="app">
-        <Nuxt />
-    </div>
+  <div id="app">
+    <NavBarVue />
+    <Nuxt />
+  </div>
 </template>
+
+<script>
+import NavBarVue from '~/components/NavBar.vue'
+export default {
+  name: 'DefaultVue',
+  components: {
+    NavBarVue
+  },
+  head () {
+    return {
+      titleTemplate: '%s - Real World Events',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Where you can find all the events taking place in your neighborhood'
+        }
+      ]
+    }
+  }
+}
+</script>
 
 <style>
     html {
